@@ -48,8 +48,8 @@ Commands
 --------
 
 | Command           | List                                                                    | Disabled    |
-| ---               | ---                                                                     | *           |
-| `Files [PATH]`    | Files (similar to `:FZF`)                                               |             |
+| ---               | ---                                                                     | ---         |
+| `Files [PATH]`    | Files (similar to `:FZF`)                                               | *           |
 | `GFiles [OPTS]`   | Git files (`git ls-files`)                                              |             |
 | `GFiles?`         | Git files (`git status`)                                                |             |
 | `Buffers`         | Open buffers                                                            |             |
