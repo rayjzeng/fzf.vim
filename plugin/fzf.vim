@@ -39,16 +39,17 @@ function! s:defs(commands)
   endfor
 endfunction
 
-let s:rg_cmd = 'rg 
-            \ --column
-            \ --line-number
-            \ --no-heading
-            \ --smart-case
-            \ --no-ignore
-            \ --hidden
-            \ --glob "!.git/*"
-            \ --glob "!.hg/*"
-            \ --color always '
+let s:rg_cmd = "'rg 
+  \ --column 
+  \ --line-number
+  \ --no-heading
+  \ --smart-case
+  \ --no-ignore
+  \ --hidden
+  \ --glob \"!.git/*\"
+  \ --glob \"!.hg/*\"
+  \ --color always '"
+
 
 call s:defs([
 \'command!      -bang -nargs=? GFiles                    call fzf#vim#gitfiles(<q-args>, <bang>0)',
