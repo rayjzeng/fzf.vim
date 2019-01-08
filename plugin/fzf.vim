@@ -47,6 +47,17 @@ function! s:p(bang, ...)
   return {}
 endfunction
 
+let s:rg_cmd = 'rg 
+            \ --column
+            \ --line-number
+            \ --no-heading
+            \ --smart-case
+            \ --no-ignore
+            \ --hidden
+            \ --glob "!.git/*"
+            \ --glob "!.hg/*"
+            \ --color always '
+
 call s:defs([
 \'command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, s:p(<bang>0), <bang>0)',
 \'command!      -bang -nargs=? GitFiles                  call fzf#vim#gitfiles(<q-args>, <q-args> == "?" ? {} : s:p(<bang>0), <bang>0)',
@@ -57,7 +68,7 @@ call s:defs([
 \'command! -bar -bang Colors                             call fzf#vim#colors(<bang>0)',
 \'command!      -bang -nargs=+ -complete=dir Locate      call fzf#vim#locate(<q-args>, s:p(<bang>0), <bang>0)',
 \'command!      -bang -nargs=* Ag                        call fzf#vim#ag(<q-args>, s:p(<bang>0), <bang>0)',
-\'command!      -bang -nargs=* Rg                        call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1, s:p(<bang>0), <bang>0)',
+\'command!      -bang -nargs=* Rg                        call fzf#vim#grep('.s:rg_cmd.'.shellescape(<q-args>), 1, s:p(<bang>0), <bang>0)',
 \'command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, <bang>0)',
 \'command!      -bang -nargs=* BTags                     call fzf#vim#buffer_tags(<q-args>, s:p(<bang>0, { "placeholder": "{2}:{3}" }), <bang>0)',
 \'command! -bar -bang Snippets                           call fzf#vim#snippets(<bang>0)',
