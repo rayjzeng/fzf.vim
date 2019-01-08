@@ -47,16 +47,16 @@ function! s:p(bang, ...)
   return {}
 endfunction
 
-let s:rg_cmd = 'rg 
-            \ --column
-            \ --line-number
-            \ --no-heading
-            \ --smart-case
-            \ --no-ignore
-            \ --hidden
-            \ --glob "!.git/*"
-            \ --glob "!.hg/*"
-            \ --color always '
+let s:rg_cmd = "'rg 
+  \ --column 
+  \ --line-number
+  \ --no-heading
+  \ --smart-case
+  \ --no-ignore
+  \ --hidden
+  \ --glob \"!.git/*\"
+  \ --glob \"!.hg/*\"
+  \ --color always '"
 
 call s:defs([
 \'command!      -bang -nargs=? -complete=dir Files       call fzf#vim#files(<q-args>, s:p(<bang>0), <bang>0)',
