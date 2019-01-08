@@ -3,29 +3,14 @@ fzf :heart: vim
 
 Things you can do with [fzf][fzf] and Vim.
 
-Rationale
+Description
 ---------
 
-[fzf][fzf] in itself is not a Vim plugin, and the official repository only
-provides the [basic wrapper function][run] for Vim and it's up to the users to
-write their own Vim commands with it. However, I've learned that many users of
-fzf are not familiar with Vimscript and are looking for the "default"
-implementation of the features they can find in the alternative Vim plugins.
-
 This repository is a bundle of fzf-based commands and mappings extracted from
-my [.vimrc][vimrc] to address such needs. They are *not* designed to be
+junegunn's [.vimrc][vimrc] to address such needs. They are *not* designed to be
 flexible or configurable, and there's no guarantee of backward-compatibility.
 
-Why you should use fzf on Vim
------------------------------
-
-Because you can and you love fzf.
-
-fzf runs asynchronously and can be orders of magnitude faster than similar Vim
-plugins. However, the benefit may not be noticeable if the size of the input
-is small, which is the case for many of the commands provided here.
-Nevertheless I wrote them anyway since it's really easy to implement custom
-selector with fzf.
+Functionality has been tweaked by rayjzeng.
 
 Installation
 ------------
@@ -62,30 +47,30 @@ Plug 'junegunn/fzf.vim'
 Commands
 --------
 
-| Command           | List                                                                    |
-| ---               | ---                                                                     |
+| Command           | List                                                                    | Disabled
+| ---               | ---                                                                     | *
 | `Files [PATH]`    | Files (similar to `:FZF`)                                               |
 | `GFiles [OPTS]`   | Git files (`git ls-files`)                                              |
 | `GFiles?`         | Git files (`git status`)                                                |
 | `Buffers`         | Open buffers                                                            |
-| `Colors`          | Color schemes                                                           |
-| `Ag [PATTERN]`    | [ag][ag] search result (`ALT-A` to select all, `ALT-D` to deselect all) |
+| `Colors`          | Color schemes                                                           | *
+| `Ag [PATTERN]`    | [ag][ag] search result (`ALT-A` to select all, `ALT-D` to deselect all) | *
 | `Rg [PATTERN]`    | [rg][rg] search result (`ALT-A` to select all, `ALT-D` to deselect all) |
 | `Lines [QUERY]`   | Lines in loaded buffers                                                 |
 | `BLines [QUERY]`  | Lines in the current buffer                                             |
-| `Tags [QUERY]`    | Tags in the project (`ctags -R`)                                        |
-| `BTags [QUERY]`   | Tags in the current buffer                                              |
+| `Tags [QUERY]`    | Tags in the project (`ctags -R`)                                        | *
+| `BTags [QUERY]`   | Tags in the current buffer                                              | *
 | `Marks`           | Marks                                                                   |
 | `Windows`         | Windows                                                                 |
-| `Locate PATTERN`  | `locate` command output                                                 |
+| `Locate PATTERN`  | `locate` command output                                                 | *
 | `History`         | `v:oldfiles` and open buffers                                           |
 | `History:`        | Command history                                                         |
 | `History/`        | Search history                                                          |
 | `Snippets`        | Snippets ([UltiSnips][us])                                              |
 | `Commits`         | Git commits (requires [fugitive.vim][f])                                |
 | `BCommits`        | Git commits for the current buffer                                      |
-| `Commands`        | Commands                                                                |
-| `Maps`            | Normal mode mappings                                                    |
+| `Commands`        | Commands                                                                | *
+| `Maps`            | Normal mode mappings                                                    | *
 | `Helptags`        | Help tags <sup id="a1">[1](#helptags)</sup>                             |
 | `Filetypes`       | File types
 

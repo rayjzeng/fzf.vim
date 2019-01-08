@@ -39,14 +39,23 @@ function! s:defs(commands)
   endfor
 endfunction
 
+let s:rg_cmd = 'rg 
+            \ --column
+            \ --line-number
+            \ --no-heading
+            \ --smart-case
+            \ --no-ignore
+            \ --hidden
+            \ --glob "!.git/*"
+            \ --glob "!.hg/*"
+            \ --color always '
+
 call s:defs([
 \'command!      -bang -nargs=? GFiles                    call fzf#vim#gitfiles(<q-args>, <bang>0)',
 \'command! -bar -bang -nargs=? -complete=buffer Buffers  call fzf#vim#buffers(<q-args>, <bang>0)',
 \'command!      -bang -nargs=* Lines                     call fzf#vim#lines(<q-args>, <bang>0)',
 \'command!      -bang -nargs=* BLines                    call fzf#vim#buffer_lines(<q-args>, <bang>0)',
-\'command!      -bang -nargs=* Rg                        call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, <bang>0)',
-\'command!      -bang -nargs=* Tags                      call fzf#vim#tags(<q-args>, <bang>0)',
-\'command!      -bang -nargs=* BTags                     call fzf#vim#buffer_tags(<q-args>, <bang>0)',
+\'command!      -bang -nargs=* Rg                        call fzf#vim#grep(' . s:rg_cmd . '.shellescape(<q-args>), 1, <bang>0)',
 \'command! -bar -bang Snippets                           call fzf#vim#snippets(<bang>0)',
 \'command! -bar -bang Commands                           call fzf#vim#commands(<bang>0)',
 \'command! -bar -bang Marks                              call fzf#vim#marks(<bang>0)',
@@ -54,7 +63,6 @@ call s:defs([
 \'command! -bar -bang Windows                            call fzf#vim#windows(<bang>0)',
 \'command! -bar -bang Commits                            call fzf#vim#commits(<bang>0)',
 \'command! -bar -bang BCommits                           call fzf#vim#buffer_commits(<bang>0)',
-\'command! -bar -bang Maps                               call fzf#vim#maps("n", <bang>0)',
 \'command! -bar -bang Filetypes                          call fzf#vim#filetypes(<bang>0)',
 \'command!      -bang -nargs=* History                   call s:history(<q-args>, <bang>0)'])
 
