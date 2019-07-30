@@ -52,10 +52,7 @@ let s:rg_cmd = "'rg
   \ --line-number
   \ --no-heading
   \ --smart-case
-  \ --no-ignore
   \ --hidden
-  \ --glob \"!.git/*\"
-  \ --glob \"!.hg/*\"
   \ --color always '"
 
 call s:defs([
