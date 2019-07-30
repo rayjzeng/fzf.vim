@@ -47,8 +47,8 @@ function! s:p(bang, ...)
   return {}
 endfunction
 
-let s:rg_cmd = "'rg 
-  \ --column 
+let s:rg_cmd = "'rg
+  \ --column
   \ --line-number
   \ --no-heading
   \ --smart-case
