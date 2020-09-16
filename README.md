@@ -3,14 +3,29 @@ fzf :heart: vim
 
 Things you can do with [fzf][fzf] and Vim.
 
-Description
+Rationale
 ---------
 
+[fzf][fzf] in itself is not a Vim plugin, and the official repository only
+provides the [basic wrapper function][run] for Vim and it's up to the users to
+write their own Vim commands with it. However, I've learned that many users of
+fzf are not familiar with Vimscript and are looking for the "default"
+implementation of the features they can find in the alternative Vim plugins.
+
 This repository is a bundle of fzf-based commands and mappings extracted from
-junegunn's [.vimrc][vimrc] to address such needs. They are *not* designed to be
+my [.vimrc][vimrc] to address such needs. They are *not* designed to be
 flexible or configurable, and there's no guarantee of backward-compatibility.
 
-Functionality has been tweaked by rayjzeng.
+Why you should use fzf on Vim
+-----------------------------
+
+Because you can and you love fzf.
+
+fzf runs asynchronously and can be orders of magnitude faster than similar Vim
+plugins. However, the benefit may not be noticeable if the size of the input
+is small, which is the case for many of the commands provided here.
+Nevertheless I wrote them anyway since it's really easy to implement custom
+selector with fzf.
 
 Installation
 ------------
